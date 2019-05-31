@@ -7,25 +7,10 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
-  #   self.e_to = None
-  #   self.s_to = None
-  #   self.w_to = None
-  #   self.item_list = [items['gold'], items['wine']]
+  def __repr__(self):
+    return f"{self.name}, {self.lat},{self.lon}\n"
+ 
 
-  # def move_to (self, direction):
-  #   if direction == "n":
-  #     return self.n_to
-  #   elif direction == "e":
-  #     return self.e_to
-  #   elif direction == "s":
-  #     return self.s_to
-  #   elif direction == "w":
-  #     return self.w_to
-
-  #   else:
-  #     return None
-
-  # def remove_item (self, item):
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -53,18 +38,18 @@ def cityreader(cities=[]):
     
     for row in cities_info:
       if i != 0:
-        cities.append(City(row[0], row[3], row[4]))
+        cities.append(City(row[0], float(row[3]), float(row[4])))
       i += 1  
      
     # cities_info.close()
-
+    
     return cities
 
 cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c.name, c.lat, c.lon)
+# for c in cities:
+#     print(f"{c.name}, {c.lat},{c.lon}")
 
 # STRETCH GOAL!
 #
